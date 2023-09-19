@@ -1,6 +1,6 @@
 # Node Failure Detection 
 
-The main objectives of this project was about implementing switch monitoring in a given ring topology.
+The main objective of this project was about implementing switch monitoring in a given ring topology.
 Here, we are providing the outline of our approach to address the problem in question.
 For a comprehensive description of the work and detailed results, please refer to the `Node_Failure_Detection.pptx` slide set file.
 
