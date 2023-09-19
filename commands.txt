@@ -1,0 +1,61 @@
+############## GITLAB ##############
+
+# Clone the code template
+
+git clone https://gitlab.com/network-automation-code-repository/2022-2023/code-template.git
+
+# Clone the repo of your project
+git config --global user.name "username"
+git config --global user.email "your_email@example.com"
+git clone <<link>>
+git switch -c main
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+
+
+############## MININET ##############
+ 
+
+# Start mininet with RYU with topology ''one_switch''
+sudo mn --custom mininet-topologies/one_switch.py --mac --topo mytopo --controller=remote,ip=127.0.0.1,port=6633 --switch ovs,protocols=OpenFlow13
+
+# Start mininet with RYU with topology 1
+sudo mn --custom mininet-topologies/topology_1.py --mac --pre mininet-topologies/config_1 --topo mytopo --controller=remote,ip=127.0.0.1,port=6633 --switch ovs,protocols=OpenFlow13
+
+
+
+# Mininet commands
+mininet>help
+mininet>nodes
+mininet>net
+mininet>dump
+mininet>h1 ifconfig –a
+mininet> h1 ping -c 1 h2
+mininet>pingall
+mininet>exit
+
+# if mininet crashes
+sudo mn -c
+
+############## RYU ##############
+
+# Start RYU controller
+ryu-manager flowmanager/flowmanager.py my-first-app.py
+
+Open a browser and connect to the following link:
+http://localhost:8080/home/index.html
+
+
+############## Traffic generation ##############
+
+m h1 iperf -s
+m h2 iperf -c 10.0.0.1
+
+
+############## OPENVSWITCH ##############
+
+sudo ovs-vsctl show
+sudo ovs-ofctl -O OpenFlow13 dump-flows s1
+sudo ovs-ofctl -O OpenFlow13 add-flow s1 in_port=s1-eth1,actions=s1-eth2
